@@ -34,15 +34,46 @@
 ### 필수 요구사항
 - Node.js 14.0 이상
 - npm 또는 yarn
+- Firebase 프로젝트
 
 ### 설치
 ```bash
 npm install
 ```
 
+### Firebase 설정
+
+#### 1. Firebase 프로젝트 생성
+1. [Firebase Console](https://console.firebase.google.com)로 이동
+2. "새 프로젝트 만들기" 클릭
+3. 프로젝트 이름 입력 후 생성
+
+#### 2. 환경 변수 설정
+`.env.local` 파일을 수정하여 Firebase 자격증명 추가:
+
+```bash
+# Firebase Console → 프로젝트 설정 → 일반에서 복사
+REACT_APP_FIREBASE_API_KEY=your_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+REACT_APP_FIREBASE_APP_ID=your_app_id
+REACT_APP_FIREBASE_MEASUREMENT_ID=your_measurement_id
+```
+
+#### 3. Firestore 데이터베이스 생성
+1. Firebase Console → "Firestore Database" 클릭
+2. "데이터베이스 만들기" 클릭
+3. 테스트 모드 선택 (또는 프로덕션 모드)
+4. 위치 선택 후 완료
+
+#### 4. 이메일 컬렉션 생성 (선택사항)
+Firebase Console에서 수동으로 `emails` 컬렉션을 생성하거나, 앱 실행 시 자동으로 생성됩니다.
+
 ### 의존성
 ```bash
-npm install lucide-react tailwindcss postcss autoprefixer
+npm install lucide-react tailwindcss postcss autoprefixer firebase
 npx tailwindcss init -p
 ```
 

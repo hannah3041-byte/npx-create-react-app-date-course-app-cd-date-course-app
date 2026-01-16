@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, MapPin, Clock, Share2, ChevronLeft, Mail, Check, Navigation } from 'lucide-react';
+import { db } from './firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 const DateCourseApp = () => {
   const [step, setStep] = useState('welcome');
@@ -344,14 +346,26 @@ const DateCourseApp = () => {
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
     if (email && email.includes('@')) {
-      // 실제 서비스에서는 여기서 API 호출
-      console.log('Email submitted:', email);
-      setEmailSubmitted(true);
-      
-      // 3초 후 메시지 숨기기
-      setTimeout(() => {
-        setEmailSubmitted(false);
-      }, 3000);
+      try {
+        // Firestore에 이메일 저장
+        await addDoc(collection(db, 'emails'), {
+          email: email,
+          timestamp: new Date(),
+          source: 'date-course-app'
+        });
+        
+        console.log('Email submitted:', email);
+        setEmailSubmitted(true);
+        setEmail(''); // 입력 필드 초기화
+        
+        // 3초 후 메시지 숨기기
+        setTimeout(() => {
+          setEmailSubmitted(false);
+        }, 3000);
+      } catch (error) {
+        console.error('Error saving email:', error);
+        alert('이메일 저장 중 오류가 발생했습니다.');
+      }
     }
   };
 
