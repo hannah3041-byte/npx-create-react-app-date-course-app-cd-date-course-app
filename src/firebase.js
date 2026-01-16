@@ -1,8 +1,9 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { getAnalytics } from 'firebase/analytics';
 
-// Firebase Console에서 복사한 설정값
-// https://console.firebase.google.com 에서 프로젝트 설정에서 찾을 수 있습니다
+// Firebase 설정
+// .env.local에서 환경 변수로 로드됨
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -19,4 +20,14 @@ const app = initializeApp(firebaseConfig);
 // Firestore 초기화
 export const db = getFirestore(app);
 
+// Analytics 초기화 (선택사항)
+let analytics;
+try {
+  analytics = getAnalytics(app);
+} catch (error) {
+  console.log('Analytics initialization skipped');
+}
+
+export { analytics };
 export default app;
+
