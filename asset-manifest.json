@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/npx-create-react-app-date-course-app-cd-date-course-app/static/css/main.5bbd4c3c.css",
-    "main.js": "/npx-create-react-app-date-course-app-cd-date-course-app/static/js/main.c50954c8.js",
+    "main.css": "/npx-create-react-app-date-course-app-cd-date-course-app/static/css/main.733c1088.css",
+    "main.js": "/npx-create-react-app-date-course-app-cd-date-course-app/static/js/main.12c8f85d.js",
     "index.html": "/npx-create-react-app-date-course-app-cd-date-course-app/index.html",
-    "main.5bbd4c3c.css.map": "/npx-create-react-app-date-course-app-cd-date-course-app/static/css/main.5bbd4c3c.css.map",
-    "main.c50954c8.js.map": "/npx-create-react-app-date-course-app-cd-date-course-app/static/js/main.c50954c8.js.map"
+    "main.733c1088.css.map": "/npx-create-react-app-date-course-app-cd-date-course-app/static/css/main.733c1088.css.map",
+    "main.12c8f85d.js.map": "/npx-create-react-app-date-course-app-cd-date-course-app/static/js/main.12c8f85d.js.map"
   },
   "entrypoints": [
-    "static/css/main.5bbd4c3c.css",
-    "static/js/main.c50954c8.js"
+    "static/css/main.733c1088.css",
+    "static/js/main.12c8f85d.js"
   ]
 }
